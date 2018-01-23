@@ -26,7 +26,8 @@ public class Utils {
 
     private static final String LOG_TAG = Utils.class.getSimpleName();
 
-    private Utils (){}
+    private Utils() {
+    }
 
     public static List<News> fetchEarthquakeData(String requestUrl) {
         // Create URL object
@@ -113,9 +114,9 @@ public class Utils {
         return output.toString();
     }
 
-    private static List<News> extractFeatureFromJson (String newsJSON){
+    private static List<News> extractFeatureFromJson(String newsJSON) {
 
-        if (TextUtils.isEmpty(newsJSON)){
+        if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
 
@@ -129,11 +130,11 @@ public class Utils {
 
             JSONArray newsArray = Response.getJSONArray("results");
 
-            for (int i = 0; i < newsArray.length(); i++){
+            for (int i = 0; i < newsArray.length(); i++) {
 
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
-                String  title = currentNews.getString("webTitle");
+                String title = currentNews.getString("webTitle");
 
                 String section = currentNews.getString("sectionName");
 
@@ -141,19 +142,36 @@ public class Utils {
 
                 String date = currentNews.getString("webPublicationDate");
 
-                News singleNews = new News(title, section, url, date);
+                String author = getAuthor(currentNews);
+
+                News singleNews = new News(title, section, url, date, author);
 
                 news.add(singleNews);
             }
 
 
-        }catch (JSONException e){
+        } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
         return news;
     }
 
+    private static String getAuthor(JSONObject currentNews) {
+        String author = "";
+
+        try {
+            JSONArray tags = currentNews.getJSONArray("tags");
+
+            JSONObject authorObject = tags.getJSONObject(0);
+
+            author = authorObject.getString("webTitle");
+
+        } catch (JSONException e) {
+            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+        }
+        return author;
+    }
 
 
 }

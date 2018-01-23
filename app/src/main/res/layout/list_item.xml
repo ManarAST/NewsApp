@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout_editor_absoluteY="81dp"
-    android:background="#E3F2FD">
+    android:background="#E3F2FD"
+    tools:layout_editor_absoluteY="81dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,7 +47,16 @@
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Jun 6, 2010" />
+            tools:text="Jun 6, 2009" />
+
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/section"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Harry Potter" />
 
     </android.support.constraint.ConstraintLayout>
 

@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,7 +30,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
                     R.layout.list_item, parent, false);
         }
 
-        News currentNews =getItem(position);
+        News currentNews = getItem(position);
 
         TextView titleView = listItemView.findViewById(R.id.news_title);
         titleView.setText(currentNews.getmTitle());
@@ -44,6 +42,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
         TextView dateView = listItemView.findViewById(R.id.date_text_view);
         dateView.setText(currentNews.getmDate());
 
+        TextView authorView = listItemView.findViewById(R.id.author_name);
+        authorView.setText(currentNews.getmAuthor());
 
 
         return listItemView;
