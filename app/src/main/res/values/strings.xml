@@ -3,6 +3,23 @@
 
     <string name="no_news">Sorry .. we couldn\'t find any news... how about trying a gain later?</string>
 
-    <string name="no_internet_connection">No internet connection...\n try making sure you have a good connection and reopen the app again.</string>
+    <string name="no_internet_connection">No internet connection...\n try making sure you have a good
+        connection and reopen the app again.</string>
+
+    <string name="settings_menu_item">Settings</string>
+
+    <string name="settings_title">Earthquake Settings</string>
+
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order-by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_newest_value</string>
+
+    <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_newest_label">Newest first</string>
+    <string name="settings_order_by_newest_value" translatable="false">newest</string>
+
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_oldest_label">Oldest first</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
 
 </resources>
